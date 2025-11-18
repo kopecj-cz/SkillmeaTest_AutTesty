@@ -6,21 +6,21 @@ Feature: Formular
     When Uzivatel napise do input jmeno "Jacob Hill"
     And Uzivatel napise do input email "jacobhill@email.com"
     #And Uzivatel klikne na radiobutton Male
-    And Uzivatel klikne na radiobutton Female
+    And Uzivatel klikne na radiobutton "male"
     Then Uzivatel vidi zaskrtnuty radiobutton Female
     And Uzivatel vidi odskrtnuty radiobutton Male
     
   Scenario: Novy test
     Given Uzivatel je na strance s formularem
     When Uzivatel napise do input email "email@email.com"
-    And Uzivatel klikne na radiobutton Female
+    And Uzivatel klikne na radiobutton "male"
     Then Uzivatel vidi zaskrtnuty radiobutton Female
 
     Scenario Outline: Novy test pomoci Scenario Outline
       Given Uzivatel je na strance s formularem
       When Uzivatel napise do input jmeno "<jmeno>"
       And Uzivatel napise do input email "<email>"
-      And Uzivatel klikne na radiobutton Female
+      And Uzivatel klikne na radiobutton "female"
       Then Uzivatel vidi zaskrtnuty radiobutton Female
       And Uzivatel vidi odskrtnuty radiobutton Male
 
