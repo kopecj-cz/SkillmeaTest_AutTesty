@@ -10,7 +10,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Form {
-        private static WebDriver driver;
+        private WebDriver driver;
+        private By femaleRadioButton = By.xpath("//*[@id=\"practiceForm\"]/div[3]/div/div/div[2]/input");
 
         @BeforeEach
         public void setUp() {
@@ -30,9 +31,9 @@ public class Form {
             driver.findElement(By.id("name")).sendKeys("Jakub Kopec");
             driver.findElement(By.id("email")).sendKeys("hill@email.com");
             driver.findElement(By.id("gender")).click();
-            driver.findElement(By.xpath("//*[@id=\"practiceForm\"]/div[3]/div/div/div[2]/input")).click();
+            driver.findElement(femaleRadioButton).click();
 
-            assertTrue(driver.findElement(By.xpath("//*[@id=\"practiceForm\"]/div[3]/div/div/div[2]/input")).isSelected());
+            assertTrue(driver.findElement(femaleRadioButton).isSelected());
             // assertFalse(driver.findElement(By.id("gender")).isSelected(), "Je to porouchané");
         }
 
